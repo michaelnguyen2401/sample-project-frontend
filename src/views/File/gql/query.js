@@ -7,6 +7,8 @@ const GET_USER_INFO = gql`
 			image {
 				...File
 			}
+
+			
 		}
 	}
 	${FILE}

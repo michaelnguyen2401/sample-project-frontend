@@ -26,8 +26,12 @@ const useStyles = makeStyles(() => ({
 	},
 }))
 
-export default function Header() {
+export default function Header(props) {
 	const classes = useStyles()
+	const {
+		selectedUserOfChat: { name, id },
+	} = props
+
 	return (
 		<Box className={classes.root}>
 			<Grid items xs={8} className={classes.root__infor}>
@@ -40,9 +44,7 @@ export default function Header() {
 					/>
 				</Grid>
 				<Grid item xs={9}>
-					<Typography className={classes.root__infor__name}>
-						Nguyễn Văn Đại
-					</Typography>
+					<Typography className={classes.root__infor__name}>{name}</Typography>
 				</Grid>
 			</Grid>
 			<Grid items xs={4} />

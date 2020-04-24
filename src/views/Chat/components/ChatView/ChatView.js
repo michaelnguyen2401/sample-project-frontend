@@ -9,19 +9,19 @@ const useStyles = makeStyles(() => ({
 		display: 'flex',
 		flexDirection: 'column',
 		width: '100%',
-		borderLeft: '1px solid #e5e5e9',
 		borderRight: '1px solid #e5e5e9',
 		height: '100vh',
 	},
 }))
 
-export default function ChatView() {
+export default function ChatView({ selectedUserOfChat }) {
 	const classes = useStyles()
+
 	return (
 		<Box className={classes.root}>
-			<Header />
-			<ViewMessage />
-			<EditorChat />
+			<Header selectedUserOfChat={selectedUserOfChat} />
+			<ViewMessage selectedUserOfChat={selectedUserOfChat} />
+			<EditorChat idUser={selectedUserOfChat.id} />
 		</Box>
 	)
 }

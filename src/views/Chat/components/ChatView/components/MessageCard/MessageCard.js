@@ -4,9 +4,9 @@ import { Box, makeStyles, Typography } from '@material-ui/core'
 import { Avatar } from '@views_components'
 
 const useStyles = makeStyles(() => ({
-	root: ({ index }) => ({
+	root: ({ leftOrRight }) => ({
 		display: 'flex',
-		flexDirection: index % 2 !== 0 ? 'row-reverse' : 'row',
+		flexDirection: leftOrRight === 'right' ? 'row-reverse' : 'row',
 	}),
 	root__message: () => ({
 		marginBottom: 4,
@@ -21,8 +21,8 @@ const useStyles = makeStyles(() => ({
 }))
 
 export default function MessageCard(props) {
-	const { message, index } = props
-	const classes = useStyles({ index })
+	const { message, leftOrRight } = props
+	const classes = useStyles({ leftOrRight })
 	return (
 		<Box className={classes.root}>
 			<Avatar size={40} />
